@@ -12,7 +12,7 @@ t = 0:dt:ts; % Time span
 %% Initial condition
 x0 = 0;
 y0 = 0;
-psi0 = 0;
+psi0 = 0.1;
 
 eta0 = [x0; y0; psi0];
 
@@ -27,11 +27,28 @@ for i = 1:length(t)
             sin(psi),  cos(psi), 0;
                    0,         0, 1];
                
-   u = 1; % X-axis velocity
-   v =0
-   zeta = [u;v;r];
+   u = 0.1; % X-axis velocity w.r.t. B frame
+   v = 0.05; % Y-axis velocity w.r.t. B frame
+   r = 0; % Angular velocity w.r.t. B frame
    
-               
+   zeta(:,i) = [u;v;r];
+   
+   eta_dot(:,i) = J_psi * zeta(:,i);
+   
+   % Use the Euler method to find the distance
+   eta(:,i+1) = eta(:,i) + dt * eta_dot(:,i);
 end
+
+%% Plotting functions
+hold on
+plot(t, eta(1,1:i), 'r--');
+plot(t, eta(2,1:i), 'b--');
+plot(t, eta(3,1:i), 'g--');
+hold off
+set(gca, 'fontsize', 16)
+xlabel('t,[s]');
+ylabel('\eta,[units]');
+
+
 
 

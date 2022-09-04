@@ -27,9 +27,9 @@ for i = 1:length(t)
             sin(psi),  cos(psi), 0;
                    0,         0, 1];
                
-   u = 0.1; % X-axis velocity w.r.t. B frame
-   v = 0.05; % Y-axis velocity w.r.t. B frame
-   r = 0; % Angular velocity w.r.t. B frame
+   u = 0.3; % X-axis velocity w.r.t. B frame
+   v = 0; % Y-axis velocity w.r.t. B frame
+   r = 0.2; % Angular velocity w.r.t. B frame
    
    zeta(:,i) = [u;v;r];
    
@@ -40,23 +40,15 @@ for i = 1:length(t)
 end
 
 %% Plotting functions
-figure(1)
-plot(t, eta(1,1:i), 'r-');
+hold on
+plot(t, eta(1,1:i), 'r--');
+plot(t, eta(2,1:i), 'b--');
+plot(t, eta(3,1:i), 'g--');
+hold off
 set(gca, 'fontsize', 16)
 xlabel('t,[s]');
-ylabel('x,[m]');
+ylabel('\eta,[units]');
 
-figure(2)
-plot(t, eta(2,1:i), 'b-');
-set(gca, 'fontsize', 16)
-xlabel('t,[s]');
-ylabel('y,[m]');
-
-figure(3)
-plot(t, eta(3,1:i), 'g-');
-set(gca, 'fontsize', 16)
-xlabel('t,[s]');
-ylabel('psi,[rad]');
 
 
 
