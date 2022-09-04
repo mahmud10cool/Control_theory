@@ -40,10 +40,23 @@ for i = 1:length(t)
 end
 
 %% Plotting functions
-
+figure(1)
 plot(t, eta(1,1:i), 'r-');
 set(gca, 'fontsize', 16)
 xlabel('t,[s]');
 ylabel('x,[m]');
+
+figure(2)
+plot(t, eta(2,1:i), 'b-');
+set(gca, 'fontsize', 16)
+xlabel('t,[s]');
+ylabel('y,[m]');
+
+figure(3)
+plot(t, eta(3,1:i), 'g-');
+set(gca, 'fontsize', 16)
+xlabel('t,[s]');
+ylabel('psi,[rad]');
+
 
 
