@@ -1,0 +1,37 @@
+%% Kinematic simulation of a Mobile robot (Land-based)
+% Euler method
+% Kind of linearization for small changes in time
+% Clear everything before starting simulation
+clear all; clc; close all;
+
+%% Simulation parameters
+dt = 0.1; % Step size
+ts = 10; % Total simulation time
+t = 0:dt:ts; % Time span
+
+%% Initial condition
+x0 = 0;
+y0 = 0;
+psi0 = 0;
+
+eta0 = [x0; y0; psi0];
+
+eta(:,1) = eta0;
+
+%% Loop starts here 
+% Using for loop for the iterations
+for i = 1:length(t)
+   psi = eta(3,i); % Current orientation in rad.
+   % Jacobian matrix
+   J_psi = [cos(psi), -sin(psi), 0;
+            sin(psi),  cos(psi), 0;
+                   0,         0, 1];
+               
+   u = 1; % X-axis velocity
+   v =0
+   zeta = [u;v;r];
+   
+               
+end
+
+
