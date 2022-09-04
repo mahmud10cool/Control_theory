@@ -28,7 +28,7 @@ for i = 1:length(t)
                    0,         0, 1];
                
    u = 0.1; % X-axis velocity w.r.t. B frame
-   v = 0; % Y-axis velocity w.r.t. B frame
+   v = 0.05; % Y-axis velocity w.r.t. B frame
    r = 0; % Angular velocity w.r.t. B frame
    
    zeta(:,i) = [u;v;r];
