@@ -1,0 +1,13 @@
+clc; clear all; close all;
+%% Impact of zeros on systems
+% Define the transfer functions
+s = tf('s');
+m = 2;
+b = 1;
+
+for i=0:0.5:5   
+    Gs = 1/(m*s^2 + b*s + k);
+    hold on
+    step(Gs);
+end
+hold off
